@@ -1,7 +1,6 @@
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { Course } from '@/types'
-
 const MOCK_COURSES: Course[] = [
   { id: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed", title: "Advanced React Patterns", progress: 75, icon_name: "Code2", created_at: new Date().toISOString() },
   { id: "2b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bee", title: "System Design Fundamentals", progress: 42, icon_name: "Layers", created_at: new Date().toISOString() },
@@ -15,20 +14,12 @@ function isPlaceholderConfig(): boolean {
   return !url || !key || url.includes('placeholder') || url.includes('your_supabase')
 }
 
-/**
- * Custom Supabase Client Wrapper
- * Implements standard from().select() query capabilities.
- * If credentials are placeholders or if query fails (e.g. table is not seeded),
- * it falls back to mock courses data after a 1.5s delay to trigger the skeleton screens.
- */
 export const supabase = {
   from(table: string) {
     return {
       async select(query = '*') {
-        // Artificial delay of 1.5s to let the user see the gorgeous Skeleton loader!
         await new Promise((resolve) => setTimeout(resolve, 1500))
-
-        if (isPlaceholderConfig()) {
+          if (isPlaceholderConfig()) {
           console.log("[Supabase Server Client] Using placeholder credentials. Falling back to mock data.")
           if (table === 'courses') {
             return { data: MOCK_COURSES, error: null }
