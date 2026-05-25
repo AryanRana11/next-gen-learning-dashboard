@@ -13,7 +13,6 @@ interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-// Course Grid component that fetches data on the server
 async function CourseGrid() {
   const { data, error } = await supabase.from('courses').select('*')
   const courses = data as Course[] | null
@@ -53,7 +52,6 @@ async function CourseGrid() {
   )
 }
 
-// Loader wrapper for course skeletons
 function CourseGridSkeleton() {
   return (
     <>
@@ -66,11 +64,8 @@ function CourseGridSkeleton() {
 }
 
 export default async function DashboardPage({ searchParams }: PageProps) {
-  // Await searchParams in Next.js 15+
   const resolvedSearchParams = await searchParams
   const activeTab = (resolvedSearchParams.tab as string) || 'dashboard'
-
-  // Header Titles based on tabs
   const getHeaderInfo = () => {
     switch (activeTab) {
       case 'courses':
