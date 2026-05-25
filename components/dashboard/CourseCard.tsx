@@ -1,16 +1,12 @@
 'use client'
-
 import React from 'react'
 import { motion } from 'framer-motion'
 import * as Icons from 'lucide-react'
 import { Course } from '@/types'
 import { itemVariants } from './BentoGrid'
-
 interface CourseCardProps {
   course: Course;
 }
-
-// Dynamic Lucide Icon component resolver
 const CourseIcon = ({ iconName, className }: { iconName: string; className?: string }) => {
   const IconComponent = (Icons as any)[iconName] || Icons.BookOpen
   return <IconComponent className={className} />
