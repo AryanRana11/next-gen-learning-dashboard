@@ -1,8 +1,8 @@
 export interface Course {
   id: string;
   title: string;
-  progress: number; // 0 to 100
-  icon_name: string; // Lucide icon name string e.g. "Code2", "Layers"
+  progress: number; 
+  icon_name: string; 
   created_at: string;
 }
 
