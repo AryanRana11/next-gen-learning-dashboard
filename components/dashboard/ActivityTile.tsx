@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useEffect, useState } from 'react'
 import { motion, Variants } from 'framer-motion'
 import { BookOpen, Clock, Flame } from 'lucide-react'
@@ -29,35 +28,30 @@ const squareVariants: Variants = {
 
 interface ActivitySquare {
   id: number;
-  level: number; // 0 (empty) to 3 (highest activity)
+  level: number; 
 }
 
 export default function ActivityTile() {
   const [squares, setSquares] = useState<ActivitySquare[]>([])
 
   useEffect(() => {
-    // Generate 7 columns x 5 rows = 35 squares client-side
     const mockSquares = Array.from({ length: 35 }).map((_, i) => {
-      // Random activity level: 0 (15%), 1 (45%), 2 (25%), 3 (15%)
       const rand = Math.random()
       let level = 0
       if (rand > 0.85) level = 3
       else if (rand > 0.6) level = 2
       else if (rand > 0.15) level = 1
-      
       return { id: i, level }
     })
     setSquares(mockSquares)
   }, [])
-
-  // Map activity levels to shades of indigo/violet
   const getSquareColor = (level: number) => {
     switch (level) {
-      case 3: return 'bg-violet-500 shadow-sm shadow-violet-500/20' // high
-      case 2: return 'bg-indigo-600' // medium
-      case 1: return 'bg-indigo-900/60' // low
+      case 3: return 'bg-violet-500 shadow-sm shadow-violet-500/20' 
+      case 2: return 'bg-indigo-600' 
+      case 1: return 'bg-indigo-900/60'
       case 0:
-      default: return 'bg-white/[0.03]' // empty
+      default: return 'bg-white/[0.03]'
     }
   }
 
