@@ -47,7 +47,20 @@ To maintain a perfect Cumulative Layout Shift (CLS) score of 0, animations follo
 
 ---
 
-## 4. How to Run Locally
+## 4. Challenges Faced
+
+- Separating Server Components and Client Components while keeping data fetching server-side.
+- Integrating Supabase securely using environment variables and server-side queries.
+- Implementing Framer Motion animations without causing layout shifts.
+- Building a responsive Bento Grid that adapts across desktop, tablet, and mobile screens.
+- Dynamically rendering Lucide icons from database values.
+- Creating Suspense-based skeleton loaders that preserve layout stability.
+- Optimizing animation performance using GPU-accelerated transforms.
+- Maintaining strict TypeScript types throughout the project.
+
+---
+
+## 5. How to Run Locally
 
 ### Prerequisites
 *   Node.js (v20+ or v26.2+)
