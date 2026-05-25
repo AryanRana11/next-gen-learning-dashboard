@@ -1,10 +1,8 @@
 'use client'
-
 import React from 'react'
 import { motion, Variants } from 'framer-motion'
 import { Flame, Sparkles } from 'lucide-react'
 import { itemVariants } from './BentoGrid'
-
 const circleContainerVariants: Variants = {
   hidden: {},
   visible: {
@@ -28,12 +26,10 @@ const circleVariants: Variants = {
 }
 
 export default function HeroTile() {
-  // 12-day learning streak: let's render 12 days, filled representing completed learning
   const streakDays = Array.from({ length: 12 }).map((_, i) => ({
     dayNumber: i + 1,
-    isCompleted: i < 11 // 11 days completed + today
+    isCompleted: i < 11 
   }))
-
   return (
     <motion.div
       variants={itemVariants}
