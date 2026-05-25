@@ -71,4 +71,4 @@ To maintain a perfect Cumulative Layout Shift (CLS) score of 0, animations follo
     npm run dev
     ```
 5.  **Open the App**:
-    Navigate to [next-gen dashoard](next-gen-learning-dashboard-olive.vercel.app) in your browser.
+    Navigate to [next-gen-learning-dashboard-olive.vercel.app](next-gen-learning-dashboard-olive.vercel.app) in your browser.
