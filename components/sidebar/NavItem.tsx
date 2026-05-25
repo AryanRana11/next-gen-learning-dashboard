@@ -1,5 +1,4 @@
 'use client'
-
 import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -13,7 +12,6 @@ interface NavItemProps {
   isCollapsed: boolean;
   isMobile?: boolean;
 }
-
 export default function NavItem({
   label,
   href,
@@ -22,9 +20,7 @@ export default function NavItem({
   isCollapsed,
   isMobile = false
 }: NavItemProps) {
-  // Dynamically resolve Lucide icon component
   const IconComponent = (Icons as any)[iconName] || Icons.HelpCircle
-
   return (
     <Link href={href} className="relative w-full block group">
       <div
